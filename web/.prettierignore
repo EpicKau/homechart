@@ -1,1 +1,3 @@
-../shared/web/.prettierignore
+dist
+node_modules
+src/yaml8n/index.ts
