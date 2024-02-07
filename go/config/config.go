@@ -12,6 +12,7 @@ import (
 	"github.com/candiddev/shared/go/notify"
 	"github.com/candiddev/shared/go/paddle"
 	"github.com/candiddev/shared/go/postgresql"
+	"github.com/candiddev/shared/go/types"
 )
 
 // Config contains all of the application configuration settings.
@@ -74,8 +75,8 @@ type App struct {
 	TLSKey                                string                                      `json:"tlsKey"`
 	UIDir                                 string                                      `json:"uiDir,omitempty"`
 	UIHost                                string                                      `json:"uiHost,omitempty"`
-	AdminEmailAddresses                   []string                                    `json:"adminEmailAddresses"`
-	FeatureVotes                          []string                                    `json:"featureVotes,omitempty"`
+	AdminEmailAddresses                   types.SliceString                           `json:"adminEmailAddresses"`
+	FeatureVotes                          types.SliceString                           `json:"featureVotes,omitempty"`
 }
 
 // OAuth contains config options.
@@ -123,7 +124,7 @@ func Default() *Config {
 			SSLMode:            "disable",
 		},
 		SMTP: notify.SMTP{
-			NoEmailDomains: []string{"example.com"},
+			NoEmailDomains: types.SliceString{"example.com"},
 			Port:           587,
 		},
 	}
