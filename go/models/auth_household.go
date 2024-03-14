@@ -456,7 +456,7 @@ func (a *AuthHousehold) CreateJWT(ctx context.Context) (string, errs.Err) {
 		expires = time.Now().Add(1 * time.Hour)
 	}
 
-	t, err := jwt.New(&AuthHouseholdJWT{
+	t, _, err := jwt.New(&AuthHouseholdJWT{
 		ID:                    a.ID,
 		SelfHostedID:          a.SelfHostedID,
 		SubscriptionExpires:   a.SubscriptionExpires,
@@ -618,7 +618,7 @@ func (a *AuthHousehold) ReadJWT(ctx context.Context, force bool) errs.Err {
 		c.App.CloudPublicKey,
 	})
 	if err == nil {
-		err = t.ParsePayload(&ah, "", "", "")
+		_, err = t.ParsePayload(&ah, "", "", "")
 	}
 
 	if err != nil || time.Now().Add(1*time.Hour).After(time.Unix(ah.ExpiresAt, 0)) || ah.SelfHostedID == nil || ah.SelfHostedID.UUID != a.ID || force {
@@ -641,7 +641,7 @@ func (a *AuthHousehold) ReadJWT(ctx context.Context, force bool) errs.Err {
 					if t, _, err := jwt.Parse(string(b), cryptolib.Keys[cryptolib.KeyProviderPublic]{
 						c.App.CloudPublicKey,
 					}); err == nil {
-						if err := t.ParsePayload(&s, "", "", ""); err == nil {
+						if _, err := t.ParsePayload(&s, "", "", ""); err == nil {
 							a.CloudJWT = string(b)
 							ah = s
 						}

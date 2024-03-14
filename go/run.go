@@ -15,7 +15,7 @@ import (
 	"github.com/go-chi/chi/v5"
 )
 
-func run(ctx context.Context, _ []string, c *config.Config) errs.Err {
+func run(ctx context.Context, _ []string, _ cli.Flags, c *config.Config) errs.Err {
 	ctx = logger.SetFormat(ctx, logger.FormatKV)
 
 	ctx, cancel, cloud, err := setup(ctx, c)

@@ -28,7 +28,7 @@ func setup(ctx context.Context, config *config.Config) (outCtx context.Context, 
 			return ctx, cancel, false, logger.Error(ctx, errs.ErrReceiver.Wrap(err))
 		}
 
-		if err := t.ParsePayload(&c, "", "", ""); err != nil {
+		if _, err := t.ParsePayload(&c, "", "", ""); err != nil {
 			return ctx, cancel, false, logger.Error(ctx, errs.ErrReceiver.Wrap(err))
 		}
 

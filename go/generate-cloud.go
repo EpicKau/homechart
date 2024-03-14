@@ -5,6 +5,7 @@ import (
 	"time"
 
 	"github.com/candiddev/homechart/go/config"
+	"github.com/candiddev/shared/go/cli"
 	"github.com/candiddev/shared/go/errs"
 	"github.com/candiddev/shared/go/jwt"
 	"github.com/candiddev/shared/go/logger"
@@ -12,19 +13,10 @@ import (
 
 type jwtCloud struct {
 	Cloud bool `json:"cloud"`
-	jwt.RegisteredClaims
 }
 
-func (j *jwtCloud) GetRegisteredClaims() *jwt.RegisteredClaims {
-	return &j.RegisteredClaims
-}
-
-func (*jwtCloud) Valid() error {
-	return nil
-}
-
-func generateCloud(ctx context.Context, _ []string, c *config.Config) errs.Err {
-	t, err := jwt.New(&jwtCloud{
+func generateCloud(ctx context.Context, _ []string, _ cli.Flags, c *config.Config) errs.Err {
+	t, _, err := jwt.New(&jwtCloud{
 		Cloud: true,
 	}, time.Time{}, []string{"Homechart"}, "", c.App.BaseURL, "Cloud")
 	if err != nil {

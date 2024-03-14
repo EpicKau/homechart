@@ -5,10 +5,11 @@ import (
 
 	"github.com/candiddev/homechart/go/config"
 	"github.com/candiddev/homechart/go/tasks"
+	"github.com/candiddev/shared/go/cli"
 	"github.com/candiddev/shared/go/errs"
 )
 
-func tasksRun(ctx context.Context, args []string, c *config.Config) errs.Err {
+func tasksRun(ctx context.Context, args []string, _ cli.Flags, c *config.Config) errs.Err {
 	ctx, _, cloud, err := setup(ctx, c)
 	if err != nil {
 		return err
