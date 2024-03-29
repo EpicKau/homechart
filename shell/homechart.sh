@@ -4,8 +4,8 @@ export APP_NAME=homechart
 export APP_URL=https://homechart.app
 export BUILD_TARGETS_BINARY="linux/amd64 linux/arm64 linux/arm/v7"
 export GITHUB_REPOSITORY_ID=416805305
-export HOMECHART_app_baseURL=${HOMECHART_app_baseURL:-http://localhost}
-export HOMECHART_app_cloudEndpoint=${HOMECHART_app_cloudEndpoint:-http://localhost}
+export HOMECHART_app_baseURL=${HOMECHART_app_baseURL:-http://localhost:3000}
+export HOMECHART_app_cloudEndpoint=${HOMECHART_app_cloudEndpoint:-http://localhost:3000}
 export HOMECHART_app_cloudJWT=${HOMECHART_app_cloudJWT:-eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJjbG91ZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6Ly9taWtlLWRlc2t0b3AxLmNhbmRpZC5kZXYiLCJzdWIiOiJDbG91ZCIsImF1ZCI6WyJIb21lY2hhcnQiXSwiZXhwIjoxODM3NzEwNTc3LCJuYmYiOjE2ODAwMzA1NzcsImlhdCI6MTY4MDAzMDU3NywianRpIjoiN2MzNWJlNzEtMmE0OC00NjIwLTgxMGUtMDU4Njc4ODgyODAwIn0.xLDsYa_7cQnMmLF9XuxpzSllvcQVLRNsU4wgMZrddkz_Uzwj0rnZmhrh1gdUcWO_jzPHcjiK-7LgJ2Jz7SWYDw}
 export HOMECHART_app_cloudPrivateKey=${HOMECHART_app_cloudPrivateKey:-'ed25519private:MC4CAQAwBQYDK2VwBCIEIJzzEbJdbjgPN5Q1O75Fgfc3JivqiAeLq1F7XMj0c1hG'}
 export HOMECHART_app_cloudPublicKey=${HOMECHART_app_cloudPublicKey:-'ed25519public:MCowBQYDK2VwAyEADL5OxQve4AvYy7L2S+ypqD0/T8t9IIT/bQFkXNQCo9I='}
@@ -263,6 +263,7 @@ test-e2e () {
 		deploy-post
 	fi
 
+	(cd "${DIR}/web" && "${BINDIR}"/npx puppeteer browsers install chrome)
 	${EXEC_NPM} run e2e || ${EXEC_NPM} run e2e
 }
 

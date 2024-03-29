@@ -164,7 +164,6 @@ const views = {
     } else {
       await utilities.openMenu(page, "settings", "account");
       await utilities.click(page, "#tab-security");
-      await utilities.screenshot(page, "#title-private-key-passphrases", "wtf");
       await utilities.waitFor(page, "#table");
       let rows = await page.$$("tr");
       expect(rows.length).toBe(3);
