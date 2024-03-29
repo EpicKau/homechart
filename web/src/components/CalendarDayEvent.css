@@ -52,6 +52,7 @@
 .CalendarDayEvent__extra--container {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .CalendarDayEvent__extra--container > a:not(:first-child) {

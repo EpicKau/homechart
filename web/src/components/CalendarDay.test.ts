@@ -245,7 +245,7 @@ test("CalendarDay", async () => {
   // Test details
   testing.text(
     items[5].getElementsByClassName("CalendarDayEvent__extra")[0],
-    "local_diningPaninis",
+    "local_diningPaninisedit",
   );
   testing.text(
     items[7].getElementsByClassName("CalendarDayEvent__details")[0],
@@ -253,7 +253,7 @@ test("CalendarDay", async () => {
   );
   testing.text(
     items[8].getElementsByClassName("CalendarDayEvent__extra")[0],
-    "lunch_diningPineapple",
+    "lunch_diningPineappleedit",
   );
 
   /// Test forms

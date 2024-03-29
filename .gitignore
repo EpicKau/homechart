@@ -11,4 +11,6 @@
 /hugo/public
 /hugo/resources
 /web/dist
+/web/node_modules
 /web/screenshots
+/web/.yarn

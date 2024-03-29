@@ -187,21 +187,35 @@ run-homechart-start () {
 	run-postgresql-start
 	run-yaml8n-start
 
-	ROT_privateKey="$(${EXEC_ROT} show-private-key || echo "")"
-
 	if not-running candiddev_homechart_api; then
+		ROT_keys=$(${EXEC_ROT} decrypt ~/.rot-keys)
+		export ROT_keys
+
 		printf "Running Homechart API..."
-		try "mkdir -p ${DIR}/.cache
-		${CR} run \
+		try "${EXEC_ROT} run ${CR} run \
 			-d \
 			-e HOMECHART_app_uiHost=http://candiddev_homechart_ui:1080 \
+			-e HOMECHART_oidc_googleClientID \
+			-e HOMECHART_oidc_googleClientSecret \
+			-e HOMECHART_paddle_planIDMonthly \
+			-e HOMECHART_paddle_planIDMonthlyReferral \
+			-e HOMECHART_paddle_planIDYearly \
+			-e HOMECHART_paddle_productIDLifetime \
+			-e HOMECHART_paddle_publicKeyBase64 \
+			-e HOMECHART_paddle_sandbox \
+			-e HOMECHART_paddle_vendorAuthCode \
+			-e HOMECHART_paddle_vendorID \
 			-e HOMECHART_postgresql_hostname=candiddev_postgresql \
-			-e ROT_privateKey=${ROT_privateKey} \
+			-e HOMECHART_smtp_fromAddress \
+			-e HOMECHART_smtp_hostname \
+			-e HOMECHART_smtp_password \
+			-e HOMECHART_smtp_port \
+			-e HOMECHART_smtp_username \
 			${CR_LOGOPTS} \
 			${CR_USER} \
 			--name candiddev_homechart_api \
 			--network candiddev \
-			-p 80:3000 \
+			-p 3000:3000 \
 			--restart always \
 			${CR_VOLUME} \
 			${CR_IMAGE} \
@@ -223,7 +237,7 @@ run-homechart-start () {
 			./m run-web"
 	fi
 
-	printf "Vist http://localhost to get started\n"
+	printf "Vist http://localhost:3000 to get started\n"
 
 	run-homechart-seed
 }
@@ -235,8 +249,8 @@ run-homechart-stop () {
 
 	printf "Stopping all Homechart containers..."
 
-	try "${CR} rm -f candiddev_homechart_api || true
-${CR} rm -f candiddev_homechart_ui || true"
+	try "${CR} ${CR_RM} candiddev_homechart_api || true
+${CR} ${CR_RM} candiddev_homechart_ui || true"
 }
 
 cmd test-e2e Test Homechart E2E

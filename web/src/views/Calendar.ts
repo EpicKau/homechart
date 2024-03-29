@@ -1015,7 +1015,7 @@ export function Calendar(): m.Component {
                                 ? document.location.origin
                                 : apiEndpoint().hostname
                             }/api/v1/icalendar/${AuthAccountState.data().icalendarID}.ics${
-                              state.formICalendarTasks ? "" : "?plantasks=no"
+                              state.formICalendarTasks ? "" : "?plantask=no"
                             }>`,
                     },
                     tooltip: "",

@@ -293,6 +293,12 @@ export function CalendarDayEvent(): m.Component<CalendarDayEventAttrs> {
                                   m("span", recipe.name),
                                 )
                               : m("span", plan.customRecipe),
+                            m(Icon, {
+                              icon: Icons.Edit,
+                              style: {
+                                "margin-left": "auto",
+                              },
+                            }),
                           );
                         }),
                     vnode.attrs.event.healthLogInputs !== undefined &&
@@ -316,6 +322,12 @@ export function CalendarDayEvent(): m.Component<CalendarDayEventAttrs> {
                                     href: `/health/items?type=inputs&id=${AuthHouseholdState.findMember(log.authAccountID).id}`,
                                   },
                                   m("span", item.name),
+                                  m(Icon, {
+                                    icon: Icons.Edit,
+                                    style: {
+                                      "margin-left": "auto",
+                                    },
+                                  }),
                                 ),
                               ]);
                             }),
@@ -349,6 +361,12 @@ export function CalendarDayEvent(): m.Component<CalendarDayEventAttrs> {
                                     },
                                     m("span", item.name),
                                   ),
+                                  m(Icon, {
+                                    icon: Icons.Edit,
+                                    style: {
+                                      "margin-left": "auto",
+                                    },
+                                  }),
                                 ],
                               );
                             }),
