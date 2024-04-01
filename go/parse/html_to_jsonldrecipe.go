@@ -122,7 +122,7 @@ func HTMLToJSONLDRecipe(ctx context.Context, input string) (jsonld *JSONLDRecipe
 									for j := range howTo[i].ItemListElement {
 										jsonld.RecipeInstructions += howTo[i].ItemListElement[j].Text + "\n"
 									}
-								} else if howTo[i].Text != "" {
+								} else if howTo[i].Text != "" { //nolint:revive
 									jsonld.RecipeInstructions += howTo[i].Text + "\n"
 								}
 							}
@@ -130,7 +130,7 @@ func HTMLToJSONLDRecipe(ctx context.Context, input string) (jsonld *JSONLDRecipe
 							for i := range text {
 								jsonld.RecipeInstructions += text[i].Text
 
-								if i < len(text) && !strings.HasSuffix(text[i].Text, "\n") {
+								if i < len(text) && !strings.HasSuffix(text[i].Text, "\n") { //nolint:revive
 									jsonld.RecipeInstructions += "\n"
 								}
 							}

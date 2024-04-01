@@ -13,7 +13,7 @@ import (
 func TestImportCookRecipe(t *testing.T) {
 	logger.UseTestLogger(t)
 
-	h.Router.Get("/recipe", func(w http.ResponseWriter, r *http.Request) {
+	h.Router.Get("/recipe", func(w http.ResponseWriter, _ *http.Request) {
 		w.Header().Add("Content-Type", "text/html")
 		//nolint:forbidigo
 		fmt.Fprint(w, `

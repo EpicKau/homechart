@@ -590,7 +590,7 @@ ORDER BY plan_task.created
 			Details:       p[i].Details,
 			Duration:      p[i].Duration,
 			ID:            types.StringLimit(p[i].ID.String()),
-			Name:          types.StringLimit("Task: " + string(p[i].Name)), //nolint:goconst
+			Name:          types.StringLimit("Task: " + string(p[i].Name)),
 			Recurrence:    p[i].Recurrence,
 			RecurrenceEnd: p[i].DateEnd,
 			Updated:       &p[i].Updated,

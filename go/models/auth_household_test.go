@@ -462,6 +462,7 @@ func TestAuthHouseholdCreateReadJWT(t *testing.T) {
 
 		jwt, err := a.CreateJWT(ctx)
 		cloud = false
+
 		if err == nil {
 			w.Write([]byte(jwt))
 		} else {
@@ -559,6 +560,7 @@ func TestAuthHouseholdCreateReadJWT(t *testing.T) {
 			} else {
 				err = ah.Read(ctx)
 			}
+
 			assert.Equal(t, err, tc.err)
 			assert.Equal(t, usedJWT, tc.wantJWT)
 

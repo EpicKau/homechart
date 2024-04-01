@@ -641,7 +641,7 @@ func (a *AuthHousehold) ReadJWT(ctx context.Context, force bool) errs.Err {
 					if t, _, err := jwt.Parse(string(b), cryptolib.Keys[cryptolib.KeyProviderPublic]{
 						c.App.CloudPublicKey,
 					}); err == nil {
-						if _, err := t.ParsePayload(&s, "", "", ""); err == nil {
+						if _, err := t.ParsePayload(&s, "", "", ""); err == nil { //nolint:revive
 							a.CloudJWT = string(b)
 							ah = s
 						}

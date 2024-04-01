@@ -105,6 +105,7 @@ func TestDataSend(t *testing.T) {
 		output, _ := io.ReadAll(r.Body)
 		data, _ := DataFromByte(ctx, output, "secret")
 		got = data.ShopItems
+
 		w.WriteHeader(http.StatusOK)
 		w.Write([]byte("OK"))
 	}))

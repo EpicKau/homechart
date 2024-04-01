@@ -160,6 +160,7 @@ func (h *Handler) CheckSession(next http.Handler) http.Handler { //nolint:gocogn
 		ctx := r.Context()
 
 		var s models.AuthSession
+
 		var selfHostedID uuid.UUID
 
 		// Get session
@@ -316,6 +317,7 @@ func (*Handler) GetOffset(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		ctx := logger.Trace(r.Context())
 		offset := r.URL.Query().Get("offset")
+
 		o, err := strconv.Atoi(offset)
 		if offset != "" && err != nil {
 			WriteResponse(ctx, w, nil, nil, 0, "", logger.Error(ctx, errs.ErrSenderBadRequest))
@@ -386,6 +388,7 @@ func (h *Handler) SetCacheControl(next http.Handler) http.Handler {
 			w.Header().Set("Cache-Control", "no-store")
 			w.Header().Set("CDN-Cache-Control", "no-store")
 		}
+
 		ww := middleware.NewWrapResponseWriter(w, r.ProtoMajor)
 		next.ServeHTTP(ww, r)
 
@@ -400,6 +403,7 @@ func (h *Handler) SetCacheControl(next http.Handler) http.Handler {
 func (*Handler) SetCORS(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Access-Control-Allow-Origin", "*")
+
 		if r.Method == http.MethodOptions {
 			w.Header().Set("Access-Control-Allow-Credentials", "true")
 			w.Header().Set("Access-Control-Allow-Headers", "content-type, x-homechart-debug, x-homechart-hash, x-homechart-id, x-homechart-key, x-homechart-updated, x-homechart-version")
@@ -407,6 +411,7 @@ func (*Handler) SetCORS(next http.Handler) http.Handler {
 
 			return
 		}
+
 		next.ServeHTTP(w, r)
 	})
 }

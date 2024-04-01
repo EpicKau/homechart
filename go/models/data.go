@@ -682,7 +682,7 @@ func (d *Data) Send(ctx context.Context, authHouseholdID uuid.UUID, backupEncryp
 	client := &http.Client{}
 
 	res, errr := client.Do(r)
-	if err != nil {
+	if errr != nil {
 		return logger.Error(ctx, errs.ErrReceiver.Wrap(errr))
 	}
 

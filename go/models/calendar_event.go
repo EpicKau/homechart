@@ -140,7 +140,7 @@ func (c *CalendarEvent) getStartTime(includeLeaveTime bool) string {
 	var startTime string
 
 	if c.Duration%24 != 0 || !includeLeaveTime {
-		startTime = fmt.Sprintf(" at %s", types.CivilTimeOf(start).String12())
+		startTime = " at " + types.CivilTimeOf(start).String12()
 	}
 
 	now := time.Now().In(tz)
@@ -229,7 +229,7 @@ func (c *CalendarEvent) ToICalendarEvents() types.ICalendarEvents {
 	n := b
 	n.Duration = c.Duration
 	n.ID = types.StringLimit(c.ID.String())
-	n.Name = types.StringLimit("Event: " + string(c.Name)) //nolint:goconst
+	n.Name = types.StringLimit("Event: " + string(c.Name))
 	n.TimestampStart = &c.TimestampStart
 
 	if end != nil {
@@ -474,7 +474,7 @@ RETURNING
 			ns[j].Actions.Types = []notify.WebPushActionType{
 				NotificationActionsTypesSnooze,
 			}
-			ns[j].BodyWebPush = body.String() + fmt.Sprintf("\n\n%s", yaml8n.PushEventReminderBody.Translate(ns[j].ISO639Code))
+			ns[j].BodyWebPush = body.String() + "\n\n" + yaml8n.PushEventReminderBody.Translate(ns[j].ISO639Code)
 			ns[j].BodySMTP = body.String() + fmt.Sprintf("\n\n[%s](%s%s)", yaml8n.EmailEventReminderBody.Translate(ns[j].ISO639Code), c.App.BaseURL, url)
 			ns[j].SubjectWebPush = yaml8n.EmailPushEventReminderSubject.Translate(ns[j].ISO639Code)
 			ns[j].SubjectSMTP = templates.EmailEventReminderSubject(ns[j].ISO639Code, string(e[i].Name))

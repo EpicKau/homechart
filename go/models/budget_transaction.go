@@ -270,7 +270,6 @@ func BudgetTransactionsReadAccount(ctx context.Context, budgetAccountID uuid.UUI
 		limit = 50
 	}
 
-	//nolint:goconst
 	err := db.Query(ctx, true, &b, fmt.Sprintf(`
 WITH account_filtered AS (
 	SELECT
@@ -635,7 +634,6 @@ func (b *BudgetTransaction) create(ctx context.Context, _ CreateOpts) errs.Err {
 	id := GenerateUUID()
 	b.ID = &id
 
-	//nolint:goconst
 	err := db.Query(ctx, false, b, budgetTransactionInsert+`
 RETURNING *
 `, b)
@@ -790,7 +788,7 @@ func (b BudgetTransaction) Validate() errs.Err {
 			return ErrBudgetTransactionBalanceAccounts
 		} else if !matchCategory {
 			return ErrBudgetTransactionBalanceAccountAmount
-		} else if categoryAmount != b.Amount {
+		} else if categoryAmount != b.Amount { //nolint:revive
 			return ErrBudgetTransactionBalanceCategoryAmount
 		}
 	}

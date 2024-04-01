@@ -20,8 +20,8 @@ func main() {
 			"generate-cloud": {
 				Run: generateCloud,
 			},
-			"generate-keys": {
-				Run: cryptolib.GenerateKeys[*config.Config]().Run,
+			"gen-keys": {
+				Run: cryptolib.GenKeys[*config.Config]().Run,
 			},
 			"generate-vapid": {
 				Run:   generateVAPID,

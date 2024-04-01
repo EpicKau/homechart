@@ -24,6 +24,7 @@ func TestCloudHouseholdCreate(t *testing.T) {
 
 	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		logger.UseTestLogger(t)
+
 		ctx := chi.NewRouteContext()
 		ctx.URLParams.Add("self_hosted_id", id.String())
 		r = r.WithContext(context.WithValue(r.Context(), chi.RouteCtxKey, ctx))

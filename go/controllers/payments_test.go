@@ -221,7 +221,7 @@ func TestPaymentsDelete(t *testing.T) {
 	ah.SubscriptionProcessor = models.AuthHouseholdSubscriptionProcessorPaddleMonthly
 	ah.UpdateSubscription(ctx)
 
-	h.Config.Paddle.Mock = func(ctx context.Context, dest any, method, path string, values url.Values) errs.Err {
+	h.Config.Paddle.Mock = func(_ context.Context, _ any, _, _ string, values url.Values) errs.Err {
 		assert.Equal(t, values.Get("subscription_id"), ah.SubscriptionID)
 
 		return nil

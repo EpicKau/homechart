@@ -525,7 +525,7 @@ func TestAuthHouseholdsRead(t *testing.T) {
 				method:       "GET",
 				responseType: &a,
 				session:      tc.session,
-				uri:          fmt.Sprintf("/auth/households?%s", tc.query),
+				uri:          "/auth/households?" + tc.query,
 			}
 
 			res := r.do()

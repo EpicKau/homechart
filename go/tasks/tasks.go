@@ -3,7 +3,6 @@ package tasks
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 	"time"
 
@@ -154,7 +153,7 @@ func (t *Tasks) Start() { //nolint:gocognit
 
 // CheckUpdate checks if there is a new update available.
 func (t *Tasks) CheckUpdate(ctx context.Context) {
-	r, err := http.NewRequestWithContext(ctx, http.MethodGet, fmt.Sprintf("%s/api?p=server", t.Config.App.CloudEndpoint), nil)
+	r, err := http.NewRequestWithContext(ctx, http.MethodGet, t.Config.App.CloudEndpoint+"/api?p=server", nil)
 	if err != nil {
 		logger.Error(t.Context, errs.ErrReceiver.Wrap(err)) //nolint:errcheck
 
@@ -182,6 +181,6 @@ func (t *Tasks) CheckUpdate(ctx context.Context) {
 	}
 
 	if infos[0].Version != cli.BuildVersion {
-		logger.Info(ctx, fmt.Sprintf("A new version of Homechart is available: %s", infos[0].Version))
+		logger.Info(ctx, "A new version of Homechart is available: "+infos[0].Version)
 	}
 }

@@ -53,7 +53,7 @@ func TestMain(m *testing.M) {
 func TestModel(t *testing.T) {
 	logger.UseTestLogger(t)
 
-	f := func(m Model) {}
+	f := func(_ Model) {}
 
 	f(&Bookmark{})
 	f(&BudgetAccount{})
@@ -86,7 +86,7 @@ func TestModel(t *testing.T) {
 func TestModels(t *testing.T) {
 	logger.UseTestLogger(t)
 
-	f := func(m Models) {}
+	f := func(_ Models) {}
 
 	f(&Bookmarks{})
 	f(&BudgetAccounts{})

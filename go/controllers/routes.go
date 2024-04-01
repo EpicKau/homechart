@@ -45,7 +45,7 @@ func (h *Handler) Routes(ctx context.Context) {
 		r.Use(h.SetTracingContext)
 		r.Use(h.SessionMetrics)
 		r.Get("/", h.SystemInfoRead)
-		r.Get("/docs", func(w http.ResponseWriter, r *http.Request) {
+		r.Get("/docs", func(w http.ResponseWriter, _ *http.Request) {
 			//nolint:forbidigo
 			fmt.Fprint(w, `
 <!DOCTYPE html>

@@ -123,7 +123,7 @@ func (t request) do() *Response {
 	logger.Info(ctx, fmt.Sprintf(`"%s" method="%s" data="%s"`, t.uri, t.method, j))
 
 	client := &http.Client{
-		CheckRedirect: func(req *http.Request, via []*http.Request) error {
+		CheckRedirect: func(_ *http.Request, _ []*http.Request) error {
 			return http.ErrUseLastResponse
 		},
 	}

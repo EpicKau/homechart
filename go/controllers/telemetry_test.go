@@ -28,6 +28,7 @@ func TestTelemetryErrorCreate(t *testing.T) {
 	for name, tc := range tests {
 		t.Run(name, func(t *testing.T) {
 			logger.SetStd()
+
 			r := request{
 				data: telemetryError{
 					Error:   want,

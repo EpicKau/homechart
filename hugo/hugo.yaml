@@ -6,6 +6,14 @@ disableLanguages:
   - hi
   - nl
   - zh
+module:
+  mounts:
+    - source: content
+      target: content
+    - source: content/home.png
+      target: content/about/platform/home.png
+    - source: ../shared/hugo/pages/jsonnet.md
+      target: content/docs/references/jsonnet.md
 menu:
   main:
     - name: Get Homechart

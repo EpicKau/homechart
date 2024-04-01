@@ -777,7 +777,7 @@ func TestAuthAccountsRead(t *testing.T) {
 				method:       "GET",
 				responseType: &a,
 				session:      tc.session,
-				uri:          fmt.Sprintf("/auth/accounts?filter=%s", tc.filter),
+				uri:          "/auth/accounts?filter=" + tc.filter,
 			}.do()
 
 			noError(t, msg)
