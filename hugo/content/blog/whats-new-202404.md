@@ -13,3 +13,7 @@ type: blog
 ## Enhancements
 
 - Updated Go to 1.22.1.
+
+## Removals
+
+- Removed support for old environment variable format, such as `HOMECHART_CLI_DEBUG`, will no longer work.  Please convert your environment variables to the new format, `HOMECHART_cli_logLevel`.  Visit [the config docs]({{< ref "/docs/references/config" >}}) for more information.

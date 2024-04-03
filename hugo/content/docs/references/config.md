@@ -17,7 +17,7 @@ Homechart can be configured using [command line arguments]({{< ref "/docs/refere
 
 **For environment variables**, every configuration key can be set using `HOMECHART_section_key=a value`, i.e. `HOMECHART_cli_logLevel=debug`
 
-**For configuration files**, they can be formatted using JSON or Jsonnet.  Homechart will look for `homechart.jsonnet` by default, ascending the directory tree to find it.  See [the Jsonnet reference]({{< ref "/docs/references/jsonnet" >}} for more information.  **Configuration files are rendered at startup**, allowing you to use [dynamic Jsonnet functions]({{< ref "/docs/references/jsonnet#native-functions" >}}) to dynamically alter the config, i.e.:
+**For configuration files**, they can be formatted using JSON or Jsonnet.  Homechart will look for `homechart.jsonnet` by default, ascending the directory tree to find it.  See [the Jsonnet reference]({{< ref "/docs/references/jsonnet" >}}) for more information.  **Configuration files are rendered at startup**, allowing you to use [dynamic Jsonnet functions]({{< ref "/docs/references/jsonnet#native-functions" >}}) to dynamically alter the config, i.e.:
 
 {{< highlight json >}}
 local getRecord(type, name, fallback=null) = std.native('getRecord')(type, name, fallback);
