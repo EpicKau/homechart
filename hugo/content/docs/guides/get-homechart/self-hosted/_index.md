@@ -67,28 +67,25 @@ Homechart binaries are available on [GitHub](https://github.com/candiddev/homech
 {{< tabpane text=true >}}
 {{< tab header="Linux amd64" >}}
 {{< highlight bash >}}
-curl -L https://github.com/candiddev/homechart/releases/latest/download/homechart_linux_amd64.tar.gz -O
-curl -L https://github.com/candiddev/homechart/releases/latest/download/homechart_linux_amd64.tar.gz.sha256 -O
-sha256sum -c homechart_linux_amd64.tar.gz.sha256
-tar -C /usr/local/bin -xzf homechart_linux_amd64.tar.gz
+curl -L https://github.com/candiddev/homechart/releases/latest/download/homechart_linux_amd64.gz -O | gzip -d > homechart
+chmod +x homechart
+sha256sum homechart | grep $(curl -L https://github.com/candiddev/homechart/releases/latest/download/homechart_linux_amd64.sha256)
 {{< /highlight >}}
 {{< /tab >}}
 
 {{< tab header="Linux arm" >}}
 {{< highlight bash >}}
-curl -L https://github.com/candiddev/homechart/releases/latest/download/homechart_linux_arm.tar.gz -O
-curl -L https://github.com/candiddev/homechart/releases/latest/download/homechart_linux_arm.tar.gz.sha256 -O
-sha256sum -c homechart_linux_arm.tar.gz.sha256
-tar -C /usr/local/bin -xzf homechart_linux_arm.tar.gz
+curl -L https://github.com/candiddev/homechart/releases/latest/download/homechart_linux_arm.gz -O | gzip -d > homechart
+chmod +x homechart
+sha256sum homechart | grep $(curl -L https://github.com/candiddev/homechart/releases/latest/download/homechart_linux_arm.sha256)
 {{< /highlight >}}
 {{< /tab >}}
 
 {{< tab header="Linux arm64" >}}
 {{< highlight bash >}}
-curl -L https://github.com/candiddev/homechart/releases/latest/download/homechart_linux_arm64.tar.gz -O
-curl -L https://github.com/candiddev/homechart/releases/latest/download/homechart_linux_arm64.tar.gz.sha256 -O
-sha256sum -c homechart_linux_arm64.tar.gz.sha256
-tar -C /usr/local/bin -xzf homechart_linux_arm64.tar.gz
+curl -L https://github.com/candiddev/homechart/releases/latest/download/homechart_linux_arm64.gz -O | gzip -d > homechart
+chmod +x homechart
+sha256sum homechart | grep $(curl -L https://github.com/candiddev/homechart/releases/latest/download/homechart_linux_arm64.sha256)
 {{< /tab >}}
 {{< /highlight >}}
 {{< /tabpane >}}
@@ -96,6 +93,10 @@ tar -C /usr/local/bin -xzf homechart_linux_arm64.tar.gz
 #### Using a Container
 
 Homechart containers are available on [GitHub](https://github.com/candiddev/homechart/pkgs/container/homechart).  See the platform specific [Installation Guides](#installation-guides) for usage.
+
+#### SBOM
+
+Software Bill of Materials (SBOM) manifests are generated for every Homechart release using CycloneDX.  The manifest is available with the other release assets at https://github.com/candiddev/homechart/releases.
 
 ### Setup Homechart
 

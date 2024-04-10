@@ -30,11 +30,22 @@ func TestSystemInfoRead(t *testing.T) {
 func TestSystem(t *testing.T) {
 	logger.UseTestLogger(t)
 
-	var h models.Health
+	var sc systemClient
 
 	client := &http.Client{}
-	req, _ := http.NewRequest(http.MethodGet, ts.URL+"/api/v1/system/health?key=health", nil)
+	req, _ := http.NewRequest(http.MethodGet, ts.URL+"/api/v1/system/client?key=client", nil)
 	r, _ := client.Do(req)
+	json.NewDecoder(r.Body).Decode(&sc)
+
+	assert.Equal(t, r.StatusCode, 200)
+	assert.Equal(t, len(sc.Headers), 2)
+	assert.Contains(t, sc.RemoteAddr, "127.0.0.1")
+
+	var h models.Health
+
+	client = &http.Client{}
+	req, _ = http.NewRequest(http.MethodGet, ts.URL+"/api/v1/system/health?key=health", nil)
+	r, _ = client.Do(req)
 	json.NewDecoder(r.Body).Decode(&h)
 
 	assert.Equal(t, r.StatusCode, 200)

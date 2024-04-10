@@ -70,7 +70,6 @@ import {
   WebFormOverlayRewardCardRedeemable,
   WebGlobalAbout,
   WebGlobalAboutAPIReference,
-  WebGlobalAboutOSL,
   WebGlobalAboutPrivacyPolicy,
   WebGlobalAboutRoadmap,
   WebGlobalAboutTermsService,
@@ -972,11 +971,6 @@ AuthAccountState.data.map((authAccount) => {
           icon: Icons.AboutAPI,
           link: `${document.location.origin}/api/docs`,
           name: AuthAccountState.translate(WebGlobalAboutAPIReference),
-        },
-        {
-          icon: Icons.AboutOSS,
-          link: "/osslicenses",
-          name: AuthAccountState.translate(WebGlobalAboutOSL),
         },
         {
           icon: Icons.AboutPolicy,

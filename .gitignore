@@ -10,6 +10,7 @@
 /hugo/.hugo_build.lock
 /hugo/public
 /hugo/resources
+/tmp
 /web/dist
 /web/node_modules
 /web/screenshots

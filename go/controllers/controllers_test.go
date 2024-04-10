@@ -158,7 +158,7 @@ func TestMain(m *testing.M) {
 	}
 
 	c.App.AdminEmailAddresses = []string{seed.AuthAccounts[1].EmailAddress.String()}
-	c.App.SystemConfigKey = "config"
+	c.App.SystemClientKey = "client"
 	c.App.SystemHealthKey = "health"
 	c.App.SystemStopKey = "stop"
 	c.SMTP.NoEmailDomains = []string{}

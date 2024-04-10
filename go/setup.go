@@ -36,8 +36,8 @@ func setup(ctx context.Context, config *config.Config) (outCtx context.Context, 
 	}
 
 	// Setup jaeger
-	tracer, err := logger.SetupTracing(ctx, config.Tracing, config.App.BaseURL, cli.BuildVersion)
-	if err != nil {
+	tracer, er := logger.SetupTracing(ctx, config.Tracing, config.App.BaseURL, cli.BuildVersion)
+	if er != nil {
 		return ctx, cancel, cloud, err
 	}
 

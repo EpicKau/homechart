@@ -464,6 +464,7 @@ func (h *Handler) Routes(ctx context.Context) {
 				r.Use(h.CheckRateLimiter)
 				r.Use(h.CheckSystemAuth)
 				r.With(h.SetContentType).Get("/health", h.SystemHealthRead)
+				r.Get("/client", h.SystemClientRead)
 				r.Head("/health", h.SystemHealthRead)
 				r.Handle("/pprof/goroutine", pprof.Handler("goroutine"))
 				r.Handle("/pprof/heap", pprof.Handler("heap"))

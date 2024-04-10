@@ -264,8 +264,8 @@ func (h *Handler) CheckSystemAuth(next http.Handler) http.Handler {
 		var allow bool
 
 		switch r.URL.Path {
-		case "/api/v1/system/config":
-			allow = h.Config.App.SystemConfigKey != "" && key == h.Config.App.SystemConfigKey
+		case "/api/v1/system/client":
+			allow = h.Config.App.SystemClientKey != "" && key == h.Config.App.SystemClientKey
 		case "/api/v1/system/health":
 			allow = h.Config.App.SystemHealthKey != "" && key == h.Config.App.SystemHealthKey
 		case "/api/v1/system/metrics":

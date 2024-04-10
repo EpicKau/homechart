@@ -25,6 +25,10 @@ describe("AuthAccountAuthHousehold", () => {
         method: "DELETE",
         path: `/api/v1/auth/households/1/members/${seed.authAccounts[0].id}`,
       },
+      {
+        method: "GET",
+        path: "/api/v1/auth/signin",
+      },
     ]);
   });
   test("inviteAccept", async () => {
@@ -60,6 +64,10 @@ describe("AuthAccountAuthHousehold", () => {
         method: "GET",
         path: `/api/v1/auth/accounts/${seed.authAccounts[0].id}`,
         updated: seed.authAccounts[0].updated,
+      },
+      {
+        method: "GET",
+        path: "/api/v1/auth/signin",
       },
       {
         method: "GET",

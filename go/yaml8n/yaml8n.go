@@ -6259,18 +6259,6 @@ var WebGlobalAboutAPIReference = Translation{
 	"zh": `API参考`,
 }
 
-// WebGlobalAboutOSL contains Translations.
-var WebGlobalAboutOSL = Translation{
-	"ar": `تراخيص مفتوحة المصدر`,
-	"de": `Open-Source-Lizenzen`,
-	"en": `Open Source Licenses`,
-	"es": `Licencias de código abierto`,
-	"fr": `Licences OpenSource`,
-	"hi": `ओपन सोर्स लाइसेंस`,
-	"nl": `Open Source-licenties`,
-	"zh": `开源许可证`,
-}
-
 // WebGlobalAboutPrivacyPolicy contains Translations.
 var WebGlobalAboutPrivacyPolicy = Translation{
 	"ar": `سياسة الخصوصية`,

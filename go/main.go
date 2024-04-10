@@ -6,22 +6,21 @@ import (
 
 	"github.com/candiddev/homechart/go/config"
 	"github.com/candiddev/shared/go/cli"
-	"github.com/candiddev/shared/go/cryptolib"
 )
 
 //nolint:gochecknoglobals
 var (
-	appCloudPublicKey string
+	appCloudPublicKey = "ed25519public:MCowBQYDK2VwAyEADL5OxQve4AvYy7L2S+ypqD0/T8t9IIT/bQFkXNQCo9I="
 )
 
 func main() {
-	if err := (cli.App[*config.Config]{
+	if err := (&cli.App[*config.Config]{
 		Commands: map[string]cli.Command[*config.Config]{
 			"generate-cloud": {
 				Run: generateCloud,
 			},
 			"gen-keys": {
-				Run: cryptolib.GenKeys[*config.Config]().Run,
+				Run: cli.GenKeys[*config.Config]().Run,
 			},
 			"generate-vapid": {
 				Run:   generateVAPID,
@@ -70,7 +69,8 @@ func main() {
 			"paddle",
 			"tracing",
 		},
-		Name: "Homechart",
+		Name:        "Homechart",
+		PricingLink: "https://homechart.app/pricing",
 	}).Run(); err != nil {
 		os.Exit(1)
 	}

@@ -66,7 +66,7 @@ type App struct {
 	ProxyHeaderEmail                      string                                      `json:"proxyHeaderEmail"`
 	ProxyHeaderName                       string                                      `json:"proxyHeaderName"`
 	ProxyAddress                          string                                      `json:"proxyAddress"`
-	SystemConfigKey                       string                                      `json:"systemConfigKey,omitempty"`
+	SystemClientKey                       string                                      `json:"systemClientKey,omitempty"`
 	SystemHealthKey                       string                                      `json:"systemHealthKey,omitempty"`
 	SystemMetricsKey                      string                                      `json:"systemMetricsKey,omitempty"`
 	SystemPprofKey                        string                                      `json:"systemPprofKey,omitempty"`

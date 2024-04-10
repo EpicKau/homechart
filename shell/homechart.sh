@@ -82,7 +82,7 @@ build-homechart-config () {
     ],
     rateLimiterKey: "${HOMECHART_app_rateLimiterKey}",
     rateLimiterRate: "499-S",
-    systemConfigKey: "config",
+    systemClientKey: "client",
     systemHealthKey: "health",
     systemMetricsKey: "metrics",
     systemPprofKey: "pprof",

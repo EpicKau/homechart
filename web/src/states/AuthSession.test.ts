@@ -21,10 +21,6 @@ describe("AuthSession", () => {
   });
 
   test("read", async () => {
-    await AuthSessionState.validate();
-
-    testing.requests([]);
-
     testing.mocks.responses = [
       {
         dataType: "AuthSession",

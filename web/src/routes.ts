@@ -57,17 +57,6 @@ export default {
       });
     },
   },
-  "/about/osslicenses": BuildRoute(
-    async () => {
-      return (await import("./views/AboutOSSLicenses")).AboutOSSLicenses;
-    },
-    {
-      ...routeOptions,
-      ...{
-        public: true,
-      },
-    },
-  ),
   "/about/privacy": BuildRoute(
     async () => {
       return (await import("./views/AboutPrivacy")).AboutPrivacy;

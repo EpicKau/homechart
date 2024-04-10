@@ -11,6 +11,11 @@ import (
 	"github.com/candiddev/shared/go/types"
 )
 
+type systemClient struct {
+	Headers    http.Header `json:"headers"`
+	RemoteAddr string      `json:"remoteAddr"`
+}
+
 // SystemInfoRead returns information for the api endpoint.
 func (h *Handler) SystemInfoRead(w http.ResponseWriter, r *http.Request) {
 	ctx := logger.Trace(r.Context())
@@ -20,6 +25,23 @@ func (h *Handler) SystemInfoRead(w http.ResponseWriter, r *http.Request) {
 	}
 
 	WriteResponse(ctx, w, *h.Info, nil, 1, "", logger.Error(ctx, nil))
+}
+
+// SystemClientRead returns information about the client.
+func (*Handler) SystemClientRead(w http.ResponseWriter, r *http.Request) {
+	ctx := logger.Trace(r.Context())
+
+	e := systemClient{
+		Headers:    r.Header,
+		RemoteAddr: r.RemoteAddr,
+	}
+
+	enc := json.NewEncoder(w)
+	enc.SetIndent("", "  ")
+
+	if err := enc.Encode(&e); err != nil {
+		logger.Error(ctx, errs.ErrReceiver.Wrap(err)) //nolint:errcheck
+	}
 }
 
 // SystemHealthRead checks application health and returns JSON.

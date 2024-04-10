@@ -12,6 +12,7 @@ type: blog
 
 ## Enhancements
 
+- Added SBOMs to Homechart releases.  See [Self-Hosted Homechart]({{< ref "/docs/guides/get-homechart/self-hosted#sbom" >}}) for more information.
 - Updated Go to 1.22.1.
 
 ## Removals

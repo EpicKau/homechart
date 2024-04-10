@@ -5525,16 +5525,6 @@ translations:
     hi: एपीआई संदर्भ
     nl: API-referentie
     zh: API参考
-  WebGlobalAboutOSL:
-    ar: تراخيص مفتوحة المصدر
-    context: List of open source licenses
-    de: Open-Source-Lizenzen
-    en: Open Source Licenses
-    es: Licencias de código abierto
-    fr: Licences OpenSource
-    hi: ओपन सोर्स लाइसेंस
-    nl: Open Source-licenties
-    zh: 开源许可证
   WebGlobalAboutPrivacyPolicy:
     ar: سياسة الخصوصية
     context: Privacy policy for using Homechart

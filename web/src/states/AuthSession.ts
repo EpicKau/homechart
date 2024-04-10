@@ -5,7 +5,7 @@ import { ActionsEnum } from "@lib/types/Actions";
 import type { UserAgent } from "@lib/types/UserAgent";
 import { getUserAgent } from "@lib/types/UserAgent";
 
-import { API, apiEndpoint, ErrUnknownResponse } from "../services/API";
+import { API, ErrUnknownResponse } from "../services/API";
 import { DataTypeEnum } from "../types/DataType";
 import type { Permissions, PermissionsHousehold } from "../types/Permission";
 import { Permission } from "../types/Permission";
@@ -186,11 +186,8 @@ export class AuthSessionManager extends DataManager<AuthSession> {
       .then(() => {});
   }
 
+  // This is OK to fail as we need to really do the GET to trigger SSO.
   async validate(): Promise<void | Err> {
-    if (AuthSessionState.data().id === null && apiEndpoint().id === "") {
-      return ErrUnknownResponse;
-    }
-
     return API.read("/api/v1/auth/signin", {}).then(async (response) => {
       if (IsErr(response)) {
         return response;

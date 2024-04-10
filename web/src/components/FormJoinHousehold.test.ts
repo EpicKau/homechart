@@ -61,6 +61,10 @@ test("FormJoinHousehold", async () => {
       path: `/api/v1/auth/accounts/${seed.authAccounts[0].id}`,
       updated: seed.authAccounts[0].updated,
     },
+    {
+      method: "GET",
+      path: "/api/v1/auth/signin",
+    },
   ]);
 
   testing.mocks.responses = [
@@ -92,6 +96,10 @@ test("FormJoinHousehold", async () => {
       method: "GET",
       path: `/api/v1/auth/accounts/${seed.authAccounts[0].id}`,
       updated: seed.authAccounts[0].updated,
+    },
+    {
+      method: "GET",
+      path: "/api/v1/auth/signin",
     },
     {
       method: "GET",
