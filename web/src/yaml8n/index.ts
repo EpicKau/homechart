@@ -66,8 +66,7 @@ export const EmailEmailAddressChangeConfirmationBody: Translation = {
 export const EmailEmailAddressChangeConfirmationSubject: Translation = {
   ar: `[مطلوب اتخاذ إجراء] تحقق من عنوان بريدك الإلكتروني المحدث`,
   de: `[Aktion erforderlich] Bestätigen Sie Ihre aktualisierte E-Mail-Adresse`,
-  en: `[Action Required] Verify Your Updated Email Address
-`,
+  en: `[Action Required] Verify Your Updated Email Address`,
   es: `[Acción requerida] Verifique su dirección de correo electrónico actualizada`,
   fr: `[Action requise] Vérifiez votre adresse e-mail mise à jour`,
   hi: `[कार्रवाई आवश्यक] अपना अपडेट किया गया ईमेल पता सत्यापित करें`,
@@ -120,14 +119,13 @@ export const EmailExpiredBody: Translation = {
 };
 
 export const EmailExpiredSubject: Translation = {
-  ar: `[مطلوب اتخاذ إجراء] انتهت صلاحية اشتراكك في Homechart Cloud &quot;`,
-  de: `[Aktion erforderlich] Ihr Homechart Cloud-Abonnement ist abgelaufen&quot;`,
-  en: `[Action Required] Your Homechart Cloud Subscription Has Expired"
-`,
-  es: `[Acción requerida] Su suscripción a Homechart Cloud ha caducado&quot;`,
-  fr: `[Action requise] Votre abonnement Homechart Cloud a expiré&quot;`,
-  hi: `[कार्रवाई आवश्यक] आपकी होमचार्ट क्लाउड सदस्यता समाप्त हो गई है&quot;`,
-  nl: `[Actie vereist] Uw Homechart Cloud-abonnement is verlopen&quot;`,
+  ar: `[مطلوب اتخاذ إجراء] انتهت صلاحية اشتراكك في Homechart Cloud `,
+  de: `[Aktion erforderlich] Ihr Homechart Cloud-Abonnement ist abgelaufen`,
+  en: `[Action Required] Your Homechart Cloud Subscription Has Expired"`,
+  es: `[Acción requerida] Su suscripción a Homechart Cloud ha caducado`,
+  fr: `[Action requise] Votre abonnement Homechart Cloud a expiré`,
+  hi: `[कार्रवाई आवश्यक] आपकी होमचार्ट क्लाउड सदस्यता समाप्त हो गई है`,
+  nl: `[Actie vereist] Uw Homechart Cloud-abonnement is verlopen`,
   zh: `[需要采取行动] 您的 Homechart Cloud 订阅已过期”`,
 };
 
@@ -145,8 +143,7 @@ export const EmailExpiringBody: Translation = {
 export const EmailExpiringSubject: Translation = {
   ar: `[مطلوب اتخاذ إجراء] انتهاء صلاحية اشتراكك في Homechart Cloud قريبًا`,
   de: `[Aktion erforderlich] Ihr Homechart Cloud-Abonnement läuft bald ab`,
-  en: `[Action Required] Your Homechart Cloud Subscription Expires Soon
-`,
+  en: `[Action Required] Your Homechart Cloud Subscription Expires Soon`,
   es: `[Acción requerida] Su suscripción a Homechart Cloud caduca pronto`,
   fr: `[Action requise] Votre abonnement Homechart Cloud expire bientôt`,
   hi: `[कार्रवाई आवश्यक] आपका होमचार्ट क्लाउड सब्सक्रिप्शन जल्द ही समाप्त हो रहा है`,
@@ -1737,7 +1734,7 @@ export const ObjectLogCreated: Translation = {
 
 export const ObjectLogDeleted: Translation = {
   ar: `تم حذف السجل`,
-  de: `Protokoll gelöscht`,
+  de: ` gelöscht`,
   en: `Log deleted`,
   es: `Registro eliminado`,
   fr: `Journal supprimé`,
@@ -4939,7 +4936,7 @@ export const WebFormOverlayPlanTaskAssigneesTooltip: Translation = {
 
 export const WebFormOverlayPlanTaskDueDate: Translation = {
   ar: `تاريخ الاستحقاق`,
-  de: `Geburtstermin`,
+  de: `Fälligkeitsdatum`,
   en: `Due Date`,
   es: `Fecha de vencimiento`,
   fr: `Date d'échéance`,
